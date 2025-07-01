@@ -19,6 +19,13 @@ def get_calendar_events():
             f.write(base64.b64decode(creds_b64))
         print("🔐 credentials.json generated from environment variable.")
 
+    # Decode token.pickle from Railway secret if it exists
+    token_b64 = os.getenv("GCAL_TOKEN_B64")
+    if token_b64:
+        with open("token.pickle", "wb") as f:
+            f.write(base64.b64decode(token_b64))
+        print("🔐 token.pickle generated from environment variable.")
+
     creds = None
     token_path = "token.pickle"
 
