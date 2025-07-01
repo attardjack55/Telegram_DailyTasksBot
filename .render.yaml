@@ -1,7 +1,10 @@
 services:
-  - type: cron
-    name: daily-tasks-bot
-    schedule: "0 8 * * 1-5"  # Runs at 08:00 UTC, Mon–Fri
+  - type: web
+    name: daily-summary-bot
     runtime: python
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "python3 daily_summary.py"
+    region: europe-west4
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    start: python daily_summary.py
+    autoDeploy: true
+
