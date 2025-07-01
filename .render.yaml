@@ -1,2 +1,2 @@
  buildCommand: pip install -r requirements.txt
- start: python daily_summary.py
+ startCommand: python daily_summary.py
