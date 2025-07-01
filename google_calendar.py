@@ -1,6 +1,7 @@
 import os
 import datetime
 import pickle
+import base64
 
 from google.auth.transport.requests import Request
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -10,6 +11,13 @@ SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"]
 
 def get_calendar_events():
     print("🔄 Starting calendar fetch...")
+
+    # Decode credentials.json from Railway secret if it exists
+    creds_b64 = os.getenv("GCAL_CREDENTIALS_B64")
+    if creds_b64:
+        with open("credentials.json", "wb") as f:
+            f.write(base64.b64decode(creds_b64))
+        print("🔐 credentials.json generated from environment variable.")
 
     creds = None
     token_path = "token.pickle"
