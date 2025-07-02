@@ -1,3 +1,7 @@
+# At the top of daily_summary.py
+# Trigger: deployment test 2025-07-01
+
+
 import os
 from dotenv import load_dotenv
 from telegram import send_telegram_message  # Custom helper
