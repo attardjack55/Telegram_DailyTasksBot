@@ -1,0 +1,13 @@
+# Prevent credentials from being tracked
+credentials.json
+token.pickle
+credentials.b64
+token.b64
+
+# Python cache
+__pycache__/
+*.pyc
+
+# OS metadata
+.DS_Store
+
